@@ -3,6 +3,5 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 FROM openjdk:11-jre-slim
-COPY --from=build /target/demo-0.0.1-SNAPSHOT.jar demo.jar
-EXPOSE 8080
-ENTRYPOINT ["java","-jar","demo.jar"]
+ADD ./demo-0.0.1-SNAPSHOT.jar demo-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","demo-0.0.1-SNAPSHOT.jar"]
